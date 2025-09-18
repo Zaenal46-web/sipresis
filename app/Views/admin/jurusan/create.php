@@ -6,7 +6,7 @@
       <div class="col-lg-12 col-md-12">
         <?= view('admin/_messages'); ?>
         <div class="card">
-          <div class="card-header card-header-success" style="background: #2d645a !important;">
+          <div class="card-header card-header-success" style="background: #141C6E !important;">
             <h4 class="card-title"><b>Form Tambah Jurusan</b></h4>
           </div>
           <div class="card-body mx-5 my-3">
@@ -20,7 +20,7 @@
                   <?= invalidFeedback('jurusan'); ?>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary mt-4" style="background: #32642d !important;">Simpan</button>
+              <button type="submit" class="btn btn-primary mt-4" style="background: #1E2998 !important;">Simpan</button>
             </form>
           </div>
         </div>

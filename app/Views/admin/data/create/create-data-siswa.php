@@ -5,7 +5,7 @@
       <div class="row">
          <div class="col-lg-12 col-md-12">
             <div class="card">
-               <div class="card-header card-header-success" style="background:rgb(53, 116, 47) !important;">
+               <div class="card-header card-header-success" style="background: #141C6E !important;">
                   <h4 class="card-title"><b>Form Tambah Siswa</b></h4>
 
                </div>
@@ -106,7 +106,7 @@
                         </div>
                      </div>
 
-                     <button type="submit" class="btn btn-success btn-block" style="background:rgb(53, 116, 47) !important;">Simpan</button>
+                     <button type="submit" class="btn btn-success btn-block" style="background: #1E2998 !important;">Simpan</button>
                   </form>
 
                   <hr>

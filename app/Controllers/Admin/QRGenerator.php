@@ -41,15 +41,15 @@ class QRGenerator extends BaseController
 
       $this->labelFont = new Font(FCPATH . 'assets/fonts/Roboto-Medium.ttf', 14);
 
-      $this->foregroundColor = new Color(44, 73, 162);
-      $this->foregroundColor2 = new Color(28, 101, 90);
+      $this->foregroundColor = new Color(0, 0, 0);
+      $this->foregroundColor2 = new Color(0, 0, 0);
       $this->backgroundColor = new Color(255, 255, 255);
 
       if (boolval(env('QR_LOGO'))) {
          // Create logo
          $logo = (new \Config\School)::$generalSettings->logo;
          if (empty($logo) || !file_exists(FCPATH . $logo)) {
-            $logo = 'assets/img/logo_sekolah.jpg';
+            $logo = 'assets/img/logo-sekolah.png';
          }
          if (file_exists(FCPATH . $logo)) {
             $fileExtension = pathinfo(FCPATH . $logo, PATHINFO_EXTENSION);

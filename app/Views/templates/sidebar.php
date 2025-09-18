@@ -42,7 +42,7 @@ switch ($context) {
          <li class="nav-item <?= $context == 'absen-siswa' ? 'active' : ''; ?>">
             <a class="nav-link" style="background-color: <?= $context == 'absen-siswa' ? '' : '#1E2998'?>;" href="<?= base_url('admin/absen-siswa'); ?>">
                <i class="material-icons">checklist</i>
-               <p>Absensi Siswa</p>
+               <p>Presensi Siswa</p>
             </a>
          </li>
          <li class="nav-item <?= $context == 'siswa' ? 'active' : ''; ?>">
@@ -82,6 +82,12 @@ switch ($context) {
                   <p>Pengaturan</p>
                </a>
             </li>
+         <!-- <li class="nav-item <?= $context == 'surat' ? 'active' : ''; ?>">
+            <a class="nav-link" style="background-color: <?= $context == 'surat' ? '' : '#1E2998'?>;" href="<?= base_url('admin/surat'); ?>">
+               <i class="material-icons">mail</i>
+               <p>Data Surat</p>
+            </a>
+         </li> -->
 
          <?php endif; ?>
          <!-- <li class="nav-item active-pro mb-3">

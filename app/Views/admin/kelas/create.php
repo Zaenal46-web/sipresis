@@ -36,7 +36,7 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success mt-4" style="background-color: #32642d !important;">Simpan</button>
+              <button type="submit" class="btn btn-success mt-4" style="background: #1E2998 !important;">Simpan</button>
             </form>
 
             <hr>

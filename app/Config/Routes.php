@@ -49,7 +49,7 @@ $routes->group('scan', function (RouteCollection $routes) {
 $routes->group('admin', function (RouteCollection $routes) {
    // Admin dashboard
    $routes->get('', 'Admin\Dashboard::index');
-$routes->get('dashboard', 'Admin\Dashboard::index');
+   $routes->get('dashboard', 'Admin\Dashboard::index');
 
    // Kelas
    $routes->group('kelas', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
@@ -74,8 +74,8 @@ $routes->get('dashboard', 'Admin\Dashboard::index');
    });
 
    // Kirim Laporan WhatsApp
-$routes->get('wa-laporan', 'Admin\KirimWaLaporan::index');
-$routes->post('wa-laporan/kirim', 'Admin\KirimWaLaporan::kirim');
+   $routes->get('wa-laporan', 'Admin\KirimWaLaporan::index');
+   $routes->post('wa-laporan/kirim', 'Admin\KirimWaLaporan::kirim');
    // admin lihat data siswa
    $routes->get('siswa', 'Admin\DataSiswa::index');
    $routes->post('siswa', 'Admin\DataSiswa::ambilDataSiswa');
@@ -117,6 +117,8 @@ $routes->post('wa-laporan/kirim', 'Admin\KirimWaLaporan::kirim');
    $routes->post('absen-siswa', 'Admin\DataAbsenSiswa::ambilDataSiswa'); // ambil siswa berdasarkan kelas dan tanggal
    $routes->post('absen-siswa/kehadiran', 'Admin\DataAbsenSiswa::ambilKehadiran'); // ambil kehadiran siswa
    $routes->post('absen-siswa/edit', 'Admin\DataAbsenSiswa::ubahKehadiran'); // ubah kehadiran siswa
+   $routes->post('admin/absen/ubah-kehadiran-modal', 'Admin\DataAbsenSiswa::ubahKehadiranModal');
+
 
    // admin lihat data absen guru
    $routes->get('absen-guru', 'Admin\DataAbsenGuru::index');
@@ -124,9 +126,14 @@ $routes->post('wa-laporan/kirim', 'Admin\KirimWaLaporan::kirim');
    $routes->post('absen-guru/kehadiran', 'Admin\DataAbsenGuru::ambilKehadiran'); // ambil kehadiran guru
    $routes->post('absen-guru/edit', 'Admin\DataAbsenGuru::ubahKehadiran'); // ubah kehadiran guru
 
-   // admin generate QR
+   // Admin Generate QR
    $routes->get('generate', 'Admin\GenerateQR::index');
    $routes->post('generate/siswa-by-kelas', 'Admin\GenerateQR::getSiswaByKelas'); // ambil siswa berdasarkan kelas
+
+   // admin generate surat
+   $routes->get('surat', 'Admin\DataSurat::index');
+   $routes->post('surat/data-surat-izin', 'Admin\DataSurat::getData');
+   // ambil siswa berdasarkan kelas
 
    // Generate QR
    $routes->post('generate/siswa', 'Admin\QRGenerator::generateQrSiswa');
@@ -143,6 +150,12 @@ $routes->post('wa-laporan/kirim', 'Admin\KirimWaLaporan::kirim');
    $routes->post('laporan/siswa', 'Admin\GenerateLaporan::generateLaporanSiswa');
    $routes->post('laporan/guru', 'Admin\GenerateLaporan::generateLaporanGuru');
 
+   // admin lihat data surat{
+   $routes->get('admin/data_surat', 'Admin\DataSurat::index');
+   
+
+
+
    // superadmin lihat data petugas
    $routes->get('petugas', 'Admin\DataPetugas::index');
    $routes->post('petugas', 'Admin\DataPetugas::ambilDataPetugas');
@@ -158,8 +171,13 @@ $routes->post('wa-laporan/kirim', 'Admin\KirimWaLaporan::kirim');
    $routes->group('general-settings', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
       $routes->get('/', 'GeneralSettings::index');
       $routes->post('update', 'GeneralSettings::generalSettingsPost');
-   });
 });
+
+
+
+});
+
+
 
 
 /*

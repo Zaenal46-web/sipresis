@@ -48,7 +48,7 @@
             <div class="row justify-content-between">
                <div class="col-auto me-auto">
                   <div class="pt-3 pl-3">
-                     <h4><b>Absen Siswa</b></h4>
+                     <h4><b>Presensi Siswa</b></h4>
                      <p>Daftar siswa muncul disini</p>
                   </div>
                </div>
@@ -72,6 +72,7 @@
       </div>
    </div>
 </div>
+
 <script>
    var lastIdKelas;
    var lastKelas;
@@ -144,20 +145,18 @@
 
    function ubahKehadiran() {
       var tanggal = $('#tanggal').val();
+      const form = document.getElementById("formUbah");
 
-      var form = $('#formUbah').serializeArray();
-
-      form.push({
-         name: 'tanggal',
-         value: tanggal
-      });
-
-      console.log(form);
+      const formData = new FormData(form);
+      formData.append('tanggal', tanggal);
+      formData.append('surat', document.getElementById('file_surat').files[0]);
 
       jQuery.ajax({
          url: "<?= base_url('/admin/absen-siswa/edit'); ?>",
          type: 'post',
-         data: form,
+         data: formData,
+         contentType: false,
+         processData: false,
          success: function(response, status, xhr) {
             // console.log(status);
 

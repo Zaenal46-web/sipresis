@@ -18,12 +18,13 @@ class PresensiSiswaModel extends Model implements PresensiInterface
       'jam_masuk',
       'jam_keluar',
       'id_kehadiran',
-      'keterangan'
+      'keterangan',
+      'file_surat'
    ];
 
    protected $table = 'tb_presensi_siswa';
 
-   public function cekAbsen(string|int $id, string|Time $date)
+   public function cekAbsen($id, $date)
    {
       $result = $this->where(['id_siswa' => $id, 'tanggal' => $date])->first();
 
@@ -68,7 +69,7 @@ class PresensiSiswaModel extends Model implements PresensiInterface
       return $this->setTable('tb_siswa')
          ->select('*')
          ->join(
-            "(SELECT id_presensi, id_siswa AS id_siswa_presensi, tanggal, jam_masuk, jam_keluar, id_kehadiran, keterangan FROM tb_presensi_siswa)tb_presensi_siswa",
+            "(SELECT id_presensi, id_siswa AS id_siswa_presensi, tanggal, jam_masuk, jam_keluar, id_kehadiran, keterangan, file_surat FROM tb_presensi_siswa)tb_presensi_siswa",
             "{$this->table}.id_siswa = tb_presensi_siswa.id_siswa_presensi AND tb_presensi_siswa.tanggal = '$tanggal'",
             'left'
          )
@@ -116,7 +117,8 @@ class PresensiSiswaModel extends Model implements PresensiInterface
       $idKehadiran,
       $jamMasuk,
       $jamKeluar,
-      $keterangan
+      $keterangan,
+      $file_surat
    ) {
       $presensi = $this->getPresensiByIdSiswaTanggal($idSiswa, $tanggal);
 
@@ -125,7 +127,8 @@ class PresensiSiswaModel extends Model implements PresensiInterface
          'id_kelas' => $idKelas,
          'tanggal' => $tanggal,
          'id_kehadiran' => $idKehadiran,
-         'keterangan' => $keterangan ?? $presensi['keterangan'] ?? ''
+         'keterangan' => $keterangan,
+         'file_surat' => $file_surat->getName() ?? NULL,
       ];
 
       if ($idPresensi != null) {
@@ -140,6 +143,14 @@ class PresensiSiswaModel extends Model implements PresensiInterface
          $data['jam_keluar'] = $jamKeluar;
       }
 
+      if(! $file_surat->hasMoved()) {
+         $filepath = FCPATH . 'uploads/surat/';
+         $file_surat->move($filepath);
+      }
+
       return $this->save($data);
+      
    }
+
 }
+

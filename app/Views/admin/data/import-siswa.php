@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-12 col-xl-8">
                         <div class="card">
-                            <div class="card-header card-header-tabs card-header-primary">
+                            <div class="card-header card-header-tabs card-header-primary" style="background: #141C6E !important;">
                                 <div class="nav-tabs-navigation">
                                     <div class="row">
                                         <div class="col-md-4 col-lg-5">
@@ -27,7 +27,7 @@
                                                 <i class="material-icons">cloud_upload</i>
                                             </p>
                                             <h3 class="text-muted">Drag &amp; drop files here</h3>
-                                            <div class="btn btn-primary mb-5">
+                                            <div class="btn btn-primary mb-5" style="background: #1E2998 !important;">
                                                 <span>Open the file Browser</span>
                                                 <input type="file" title='Click to add Files' />
                                             </div>
@@ -59,15 +59,15 @@
                     </div>
                     <div class="col-12 col-xl-4">
                         <div class="card">
-                            <div class="card-header card-header-tabs card-header-primary">
+                            <div class="card-header card-header-tabs card-header-primary" style="background: #141C6E !important;">
                                 <h4 class="card-title"><b>Help Documents</b></h4>
                                 <p class="card-category">documents to generate your CSV file</p>
                             </div>
                             <div class="card-body">
                                 <form action="<?= base_url('admin/siswa/downloadCSVFilePost'); ?>" method="post">
                                     <?= csrf_field(); ?>
-                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#modalKelas">List Kelas</button>
-                                    <button class="btn btn-success btn-block" name="submit" value="csv_siswa_template">Download CSV Template</button>
+                                    <button type="button" class="btn btn-success btn-block" style="background: #1E2998 !important;" data-toggle="modal" data-target="#modalKelas">List Kelas</button>
+                                    <button class="btn btn-success btn-block" style="background: #1E2998 !important;" name="submit" value="csv_siswa_template">Download CSV Template</button>
                                 </form>
                             </div>
                         </div>

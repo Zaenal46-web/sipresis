@@ -94,6 +94,7 @@ class DataAbsenSiswa extends BaseController
       $jamMasuk = $this->request->getVar('jam_masuk');
       $jamKeluar = $this->request->getVar('jam_keluar');
       $keterangan = $this->request->getVar('keterangan');
+      $surat = $this->request->getFile('surat');
 
       $cek = $this->presensiSiswa->cekAbsen($idSiswa, $tanggal);
 
@@ -105,7 +106,8 @@ class DataAbsenSiswa extends BaseController
          $idKehadiran,
          $jamMasuk ?? NULL,
          $jamKeluar ?? NULL,
-         $keterangan
+         $keterangan,
+         $surat ?? NULL
       );
 
       $response['nama_siswa'] = $this->siswaModel->getSiswaById($idSiswa)['nama_siswa'];

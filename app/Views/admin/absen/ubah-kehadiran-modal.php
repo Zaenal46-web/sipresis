@@ -1,10 +1,11 @@
 <div class="modal-body">
    <div class="container-fluid">
-      <form id="formUbah">
+      <form id="formUbah" enctype="multipart/form-data">
 
          <input type="hidden" name="id_siswa" value="<?= $data['id_siswa'] ?? ''; ?>">
          <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?? ''; ?>">
          <input type="hidden" name="id_kelas" value="<?= $data['id_kelas'] ?? ''; ?>">
+
 
          <label for="kehadiran">Kehadiran</label>
          <div class="form-check" id="kehadiran">
@@ -34,13 +35,36 @@
          </div>
          <label for="keterangan">Keterangan</label>
          <textarea id="keterangan" name="keterangan" class="custom-select"><?= trim($presensi['keterangan'] ?? ''); ?></textarea>
+
+         <!-- Upload Surat Keterangan PDF (Modern Box Style) -->
+         <div class="form-group mt-3">
+            <label for="file_surat">Upload Surat Keterangan (PDF)</label>
+            <div class="border rounded p-3 d-flex align-items-center" style="background-color: #f8f9fa;">
+               <div class="flex-grow-1">
+                  <input type="file" name="file_surat" id="file_surat" accept="application/pdf">
+                  <label for="file_surat" id="file_surat_label" class="mb-0 btn btn-outline-primary btn-sm">
+                     Pilih File
+                  </label>
+                  <span id="file_surat_info" class="ml-2 text-muted">Belum ada file dipilih</span>
+               </div>
+            </div>
+         </div>
+
       </form>
    </div>
 </div>
 <div class="modal-footer">
    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-   <button type="button" onclick="ubahKehadiran()" class="btn btn-primary" data-dismiss="modal">Ubah</button>
+   <button type="button" onclick="ubahKehadiran()" class="btn btn-primary" style="background: #1E2998 !important;" data-dismiss="modal">Ubah</button>
 </div>
+
+<script>
+   document.addEventListener('change', function (event) {
+      const fileInput = document.getElementById('file_surat');
+      const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'Belum ada file dipilih';
+      document.getElementById('file_surat_info').textContent = fileName;
+   });
+</script>
 
 <?php
 function kehadiran($kehadiran): array

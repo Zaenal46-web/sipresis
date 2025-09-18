@@ -32,7 +32,7 @@
             </li>
 
             <li class="nav-item dropdown">
-               <a class="nav-link text-white font-weight-bold" style="background-color: #123810 !important;letter-spacing: 2px !important;" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <a class="nav-link text-white font-weight-bold" style="background-color: #141C6E !important;letter-spacing: 2px !important;" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">Account</p>
                   <span>User : <?= user()->toArray()['username']; ?></span>
@@ -43,7 +43,7 @@
             </li>
             <!-- Logo Sekolah sebelum User Profile (Kanan) -->
             <li class="nav-item d-flex align-items-center mx-2">
-            <img src="<?= base_url('assets/img/logo-sekolah.png'); ?>" alt="Logo Sekolah" style="height: 40px; width: auto;">
+            <img src="<?= base_url('assets/img/logo-sekolah.png'); ?>" alt="Logo Sekolah" style="height: 50px; width: auto;">
             </li>
          </ul>
       </div>

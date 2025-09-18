@@ -30,7 +30,7 @@
                      <div class="col-md-12">
                         <div class="card h-100">
                            <form action="<?= base_url('admin/laporan/siswa'); ?>" method="post" class="card-body d-flex flex-column">
-                              <h4 class="text-dark"><b>Laporan Absen Siswa</b></h4>
+                              <h4 class="text-dark"><b>Laporan Presensi Siswa</b></h4>
                               <div class="row align-items-center">
                                  <div class="col-auto">
                                     <p class="d-inline"><b>Bulan :</b></p>
